@@ -18,14 +18,14 @@ const setRamdonNumber = async () => {
 };
 
 cron.schedule(
-  "12 18 * * *",
+  "41 23 * * *",
   () => {
     console.log("Running a job at 19h/9:00 Pm at America/Caracas timezone");
     setRamdonNumber();
   },
   {
     scheduled: true,
-    timezone: "America/New_York",
+    //timezone: "America/New_York", //problem with schedule memory leak
   }
 );
 
