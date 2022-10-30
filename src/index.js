@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json({ type: "application/json" }));
 
 require("./inserRamdonNumber");
-
+console.log(new Date().getHours());
 app.listen(PORT, () => {
   console.log("Server listening on port", PORT);
 });
