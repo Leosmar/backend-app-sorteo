@@ -18,7 +18,7 @@ const setRamdonNumber = async () => {
 };
 
 cron.schedule(
-  "0 6 * * *",
+  "2 18 * * *",
   () => {
     console.log("Running a job at 19h/9:00 Pm at America/Caracas timezone");
     setRamdonNumber();
