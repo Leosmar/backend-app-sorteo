@@ -5,7 +5,9 @@ const { collection, addDoc } = require("firebase/firestore");
 const setRamdonNumber = async () => {
   try {
     let date = Date.now();
+    data -= 21600000;
     let ramdonNumber = Math.round(Math.random() * 100);
+
     await addDoc(collection(db, "diary-ramdon-number"), {
       ramdonNumber,
       date,
