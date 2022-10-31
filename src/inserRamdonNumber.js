@@ -1,6 +1,10 @@
 let cron = require("node-cron");
+require("dotenv").config();
 const { db } = require("./firebase");
 const { collection, addDoc } = require("firebase/firestore");
+
+let HOUR = process.env.HOUR
+let MINUTE = process.env.MINUTE
 
 const setRamdonNumber = async () => {
   try {
@@ -18,7 +22,7 @@ const setRamdonNumber = async () => {
 };
 
 cron.schedule(
-  "0 3 * * *",
+  `${MINUTE} ${HOUR} * * *`,
   () => {
     console.log("Running a job at 19h/9:00 Pm at America/Caracas timezone");
     setRamdonNumber();
