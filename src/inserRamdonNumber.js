@@ -5,7 +5,7 @@ const { collection, addDoc } = require("firebase/firestore");
 const setRamdonNumber = async () => {
   try {
     let date = Date.now();
-    date = date - 21600000;
+    date = date - 25200000;
     let ramdonNumber = Math.round(Math.random() * 100);
 
     await addDoc(collection(db, "diary-ramdon-number"), {
@@ -18,7 +18,7 @@ const setRamdonNumber = async () => {
 };
 
 cron.schedule(
-  "41 23 * * *",
+  "0 3 * * *",
   () => {
     console.log("Running a job at 19h/9:00 Pm at America/Caracas timezone");
     setRamdonNumber();
