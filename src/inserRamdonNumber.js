@@ -3,13 +3,13 @@ require("dotenv").config();
 const { db } = require("./firebase");
 const { collection, addDoc } = require("firebase/firestore");
 
-let HOUR = process.env.HOUR
-let MINUTE = process.env.MINUTE
+let HOUR = process.env.HOUR;
+let MINUTE = process.env.MINUTE;
 
 const setRamdonNumber = async () => {
   try {
     let date = Date.now();
-    date = date - 25200000;
+    date = date - 14400000; //substrat 4 hours from the date now
     let ramdonNumber = Math.round(Math.random() * 100);
 
     await addDoc(collection(db, "diary-ramdon-number"), {
@@ -22,7 +22,7 @@ const setRamdonNumber = async () => {
 };
 
 cron.schedule(
-  `${MINUTE} ${HOUR} * * *`,
+  `30 2 * * *`,
   () => {
     console.log("Running a job at 19h/9:00 Pm at America/Caracas timezone");
     setRamdonNumber();
