@@ -11,7 +11,8 @@ const setRamdonNumber = async () => {
     let date = Date.now();
     date = date - 14400000; //substrat 4 hours from the date now
     let ramdonNumber = Math.round(Math.random() * 100);
-
+    if(ramdonNumber === 0) ramdonNumber = 1;
+    
     await addDoc(collection(db, "diary-ramdon-number"), {
       ramdonNumber,
       date,
